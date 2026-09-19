@@ -334,6 +334,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 30px;color:var(--text-d
 .reply-toggle{background:none;border:none;color:var(--text-dim);font-size:.82rem;cursor:pointer;padding:0}
 .reply-toggle:hover{color:var(--astra)}
 .reply-thread{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:grid;gap:12px}
+.reply-thread[hidden]{display:none}
 .reply-list{display:grid;gap:10px}
 .reply-item{background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
 .reply-form input,.reply-form textarea{width:100%;background:var(--bg-alt);border:1px solid var(--border);
