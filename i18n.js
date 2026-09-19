@@ -234,7 +234,7 @@ const NEXARA_I18N = {
     commp_lead: "Diese Bereiche entstehen in einer späteren Ausbaustufe von Nexara. Hier ein Ausblick, was geplant ist — und was schon jetzt funktioniert.",
 
     commp_comm_kicker: "Austausch & Diskussion",
-    commp_comm_p: "Die Nexara-Community wird der Ort, an dem ihr euch über Charaktere, Szenarien und eigene Geschichten austauschen könnt. Das vollständige Forum braucht eigene Nutzerkonten (siehe Roadmap) und ist deshalb noch nicht live — hier schon mal ein Ausblick, was geplant ist.",
+    commp_comm_p: "Die Nexara-Community ist der Ort, an dem ihr euch über Charaktere, Szenarien und eigene Geschichten austauschen könnt. Wähle unten eine Kategorie, lies mit oder schreib direkt los — ganz ohne Account. Ein vollständiges Forum mit Nutzerkonten folgt später (siehe Roadmap).",
     commp_cat1_h: "Charaktere & Szenarien", commp_cat1_p: "Lieblingscharaktere, eigene Interpretationen und Szenario-Ideen teilen.",
     commp_cat2_h: "Feedback & Wünsche", commp_cat2_p: "Direktes Feedback zur App und Vorschläge für neue Funktionen.",
     commp_cat3_h: "Fragen & Hilfe", commp_cat3_p: "Sich gegenseitig bei Einrichtung, API-Key & Co. helfen.",
@@ -242,7 +242,7 @@ const NEXARA_I18N = {
     commp_comm_cta_p: "Du hast jetzt schon Feedback, Fragen oder Ideen? Schreib uns direkt per E-Mail — deine Nachricht hilft uns, die Community von Anfang an richtig aufzubauen.",
 
     commp_lab_kicker: "Ideen einreichen & mitgestalten",
-    commp_lab_p: "Im Nexara Lab werdet ihr später neue Charaktere, Szenarien und Funktionen vorschlagen und gemeinsam per Abstimmung priorisieren können, was als Nächstes umgesetzt wird. Das Abstimmungssystem braucht Nutzerkonten und folgt in einer späteren Ausbaustufe.",
+    commp_lab_p: "Im Nexara Lab schlagt ihr neue Charaktere, Szenarien und Funktionen vor und stimmt direkt hier ab, was als Nächstes umgesetzt wird — kein Account nötig, nur ein Klick pro Idee.",
     commp_lab_step1: "Einreichen", commp_lab_step2: "Abstimmen", commp_lab_step3: "Umsetzen",
     commp_lab_cta_p: "Bis es so weit ist, sammeln wir eure Ideen schon jetzt persönlich per E-Mail — jede Idee wird gelesen und fließt in die Planung ein.",
     commp_lab_cta_btn: "Idee einreichen",
@@ -280,6 +280,40 @@ const NEXARA_I18N = {
     commp_tl6_h: "Benutzerkonten",
     commp_tl6_p: "Anmeldung für Community-Funktionen (nutzt die bestehende Firebase-Infrastruktur).",
     commp_tl6_status: "Geplant",
+
+    /* ===== Nexara Lab: echte Ideen-Abstimmung ===== */
+    lab_form_h: "Neue Idee vorschlagen",
+    lab_form_title_ph: "Titel deiner Idee",
+    lab_form_desc_ph: "Kurz beschreiben (optional)",
+    lab_form_submit: "Idee einreichen",
+    lab_loading: "Ideen werden geladen …",
+    lab_empty: "Noch keine Ideen — reich die erste ein!",
+    lab_error: "Ideen konnten nicht geladen werden. Versuch's später noch mal.",
+    lab_vote_title: "Abstimmen",
+    lab_voted_title: "Du hast bereits abgestimmt",
+    lab_submit_ok: "Danke! Deine Idee wurde eingereicht.",
+    lab_submit_err: "Da ist etwas schiefgelaufen. Versuch's noch mal.",
+    lab_submit_empty: "Bitte gib einen Titel ein.",
+    lab_submit_sending: "Wird gesendet …",
+
+    /* ===== Community-Forum: echte Beiträge ===== */
+    forum_form_h: "Neuen Beitrag schreiben",
+    forum_form_name_ph: "Dein Name (optional)",
+    forum_form_msg_ph: "Deine Nachricht",
+    forum_form_submit: "Beitrag veröffentlichen",
+    forum_loading: "Beiträge werden geladen …",
+    forum_empty: "Noch keine Beiträge in dieser Kategorie — schreib den ersten!",
+    forum_error: "Beiträge konnten nicht geladen werden. Versuch's später noch mal.",
+    forum_anon: "Anonym",
+    forum_reply_btn: "Antworten",
+    forum_reply_ph: "Antwort schreiben …",
+    forum_reply_name_ph: "Name (optional)",
+    forum_reply_submit: "Antworten",
+    forum_submit_ok: "Danke! Dein Beitrag wurde veröffentlicht.",
+    forum_reply_ok: "Antwort veröffentlicht.",
+    forum_submit_err: "Da ist etwas schiefgelaufen. Versuch's noch mal.",
+    forum_submit_empty: "Bitte schreib eine Nachricht.",
+    forum_submit_sending: "Wird gesendet …",
   },
   en: {
     nav_entdecken: "Discover",
@@ -510,7 +544,7 @@ const NEXARA_I18N = {
     commp_lead: "These areas are coming in a later stage of Nexara. Here's a preview of what's planned — and what already works today.",
 
     commp_comm_kicker: "Exchange & discussion",
-    commp_comm_p: "The Nexara community will be the place to talk about characters, scenarios and your own stories. The full forum needs its own user accounts (see roadmap) and isn't live yet — here's a preview of what's planned.",
+    commp_comm_p: "The Nexara community is the place to talk about characters, scenarios and your own stories. Pick a category below, read along, or jump right in — no account needed. A full forum with user accounts will follow later (see roadmap).",
     commp_cat1_h: "Characters & scenarios", commp_cat1_p: "Share favorite characters, your own interpretations and scenario ideas.",
     commp_cat2_h: "Feedback & requests", commp_cat2_p: "Direct feedback on the app and suggestions for new features.",
     commp_cat3_h: "Questions & help", commp_cat3_p: "Help each other with setup, API key and more.",
@@ -518,7 +552,7 @@ const NEXARA_I18N = {
     commp_comm_cta_p: "Already have feedback, questions or ideas? Email us directly — your message helps us build the community right from the start.",
 
     commp_lab_kicker: "Submit ideas & help shape Nexara",
-    commp_lab_p: "In Nexara Lab you'll be able to suggest new characters, scenarios and features, and vote together on what gets built next. The voting system needs user accounts and will follow in a later stage.",
+    commp_lab_p: "In Nexara Lab you suggest new characters, scenarios and features and vote right here on what gets built next — no account needed, just one click per idea.",
     commp_lab_step1: "Submit", commp_lab_step2: "Vote", commp_lab_step3: "Ship",
     commp_lab_cta_p: "Until then, we're collecting your ideas personally by email — every idea gets read and feeds into the planning.",
     commp_lab_cta_btn: "Submit an idea",
@@ -556,8 +590,45 @@ const NEXARA_I18N = {
     commp_tl6_h: "User accounts",
     commp_tl6_p: "Sign-in for community features (using the existing Firebase infrastructure).",
     commp_tl6_status: "Planned",
+
+    /* ===== Nexara Lab: real idea voting ===== */
+    lab_form_h: "Suggest a new idea",
+    lab_form_title_ph: "Title of your idea",
+    lab_form_desc_ph: "Briefly describe it (optional)",
+    lab_form_submit: "Submit idea",
+    lab_loading: "Loading ideas …",
+    lab_empty: "No ideas yet — submit the first one!",
+    lab_error: "Couldn't load ideas. Please try again later.",
+    lab_vote_title: "Vote",
+    lab_voted_title: "You already voted",
+    lab_submit_ok: "Thanks! Your idea has been submitted.",
+    lab_submit_err: "Something went wrong. Please try again.",
+    lab_submit_empty: "Please enter a title.",
+    lab_submit_sending: "Sending …",
+
+    /* ===== Community forum: real posts ===== */
+    forum_form_h: "Write a new post",
+    forum_form_name_ph: "Your name (optional)",
+    forum_form_msg_ph: "Your message",
+    forum_form_submit: "Post",
+    forum_loading: "Loading posts …",
+    forum_empty: "No posts in this category yet — write the first one!",
+    forum_error: "Couldn't load posts. Please try again later.",
+    forum_anon: "Anonymous",
+    forum_reply_btn: "Reply",
+    forum_reply_ph: "Write a reply …",
+    forum_reply_name_ph: "Name (optional)",
+    forum_reply_submit: "Reply",
+    forum_submit_ok: "Thanks! Your post has been published.",
+    forum_reply_ok: "Reply published.",
+    forum_submit_err: "Something went wrong. Please try again.",
+    forum_submit_empty: "Please write a message.",
+    forum_submit_sending: "Sending …",
   }
 };
+
+// expose to other scripts/modules (top-level `const` is not a window property)
+window.NEXARA_I18N = NEXARA_I18N;
 
 function nexaraSetLang(lang) {
   if (!NEXARA_I18N[lang]) lang = "de";
@@ -571,10 +642,21 @@ function nexaraSetLang(lang) {
     const src = lang === "en" ? el.getAttribute("data-i18n-src-en") : el.getAttribute("data-i18n-src-de");
     if (src) el.setAttribute("src", src);
   });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const val = NEXARA_I18N[lang][key];
+    if (val !== undefined) el.setAttribute("placeholder", val);
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-title");
+    const val = NEXARA_I18N[lang][key];
+    if (val !== undefined) el.setAttribute("title", val);
+  });
   document.querySelectorAll("[data-lang-toggle]").forEach((btn) => {
     btn.textContent = lang === "de" ? "EN" : "DE";
   });
   try { localStorage.setItem("nexara_lang", lang); } catch (e) {}
+  document.dispatchEvent(new CustomEvent("nexaralangchange", { detail: { lang } }));
 }
 
 function nexaraToggleLang() {
