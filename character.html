@@ -36,21 +36,22 @@
         <a href="index.html" data-i18n="crumb_home">Start</a> / <a href="charaktere.html" data-i18n="nav_charaktere">Charaktere</a> / <span id="crumb-name">…</span>
       </div>
       <h1 id="char-title">…</h1>
+      <p id="char-subtitle" style="color:var(--text-dim);"></p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <div class="placeholder-note" data-i18n="placeholder_note">Platzhalter-Inhalt — wird ersetzt, sobald du mir die echten Daten/Bilder gibst.</div>
-
       <div class="split" style="margin-bottom:60px;">
         <div>
           <img id="char-img" src="" alt="" style="border-radius:20px;" />
         </div>
         <div>
           <h2 id="char-title-2">…</h2>
-          <p id="char-bio" data-i18n="char_bio_placeholder">Platzhalter-Biografie …</p>
-          <a href="#" class="btn btn-primary" data-i18n="char_cta_chat">In der App entdecken</a>
+          <p id="char-quote" style="color:var(--astra);font-style:italic;"></p>
+          <p id="char-bio"></p>
+          <div class="trait-row" id="char-traits"></div>
+          <a href="index.html#preis" class="btn btn-primary" style="margin-top:22px;" data-i18n="char_cta_chat">In der App entdecken</a>
         </div>
       </div>
 
@@ -58,7 +59,7 @@
         <div class="kicker" data-i18n="char_scenarios_h">Szenarien</div>
       </div>
       <div class="cards4" id="char-scenarios">
-        <!-- 3 placeholder scenario cards injected by script -->
+        <!-- 3 real scenario cards injected by script -->
       </div>
 
       <div class="center" style="margin-top:50px;">
@@ -121,42 +122,103 @@
     var slug = params.get('c');
     var data = slug && NEXARA_CHARACTERS[slug];
 
-    function fillScenarios(){
+    var KAT_LABEL = {
+      mensch: { de: 'Mensch', en: 'Human' },
+      fabelwesen: { de: 'Fabelwesen', en: 'Fable being' }
+    };
+    var GES_LABEL = {
+      weiblich: { de: 'weiblich', en: 'female' },
+      'männlich': { de: 'männlich', en: 'male' }
+    };
+
+    function currentLang(){
+      return document.documentElement.getAttribute('lang') || 'de';
+    }
+
+    function fillScenarios(lang){
       var wrap = document.getElementById('char-scenarios');
       wrap.innerHTML = '';
-      for (var i = 1; i <= 3; i++) {
+      if (!data || !data.scenarios) return;
+      data.scenarios.forEach(function(s){
         var card = document.createElement('div');
         card.className = 'card';
-        card.innerHTML =
-          '<div class="ic">🎭</div>' +
-          '<h4><span data-i18n="char_scenario_placeholder_title">Szenario</span> ' + i + '</h4>' +
-          '<p data-i18n="char_scenario_placeholder_text">Platzhalter-Beschreibung …</p>';
+        var titel = (s.titel && (s.titel[lang] || s.titel.de)) || '';
+        var text = (s.text && (s.text[lang] || s.text.de)) || '';
+        var h4 = document.createElement('h4');
+        h4.textContent = titel;
+        var p = document.createElement('p');
+        p.textContent = text;
+        var ic = document.createElement('div');
+        ic.className = 'ic';
+        ic.textContent = '🎭';
+        card.appendChild(ic);
+        card.appendChild(h4);
+        card.appendChild(p);
         wrap.appendChild(card);
-      }
+      });
+    }
+
+    function fillTraits(lang){
+      var wrap = document.getElementById('char-traits');
+      wrap.innerHTML = '';
+      if (!data || !data.traits) return;
+      data.traits.forEach(function(t){
+        var span = document.createElement('span');
+        span.className = 'trait';
+        span.textContent = (t[lang] || t.de);
+        wrap.appendChild(span);
+      });
     }
 
     function applyContent(){
+      var lang = currentLang();
       if (data) {
-        document.title = "Nexara — " + data.name;
+        document.title = 'Nexara — ' + data.name;
         document.getElementById('char-title').textContent = data.name;
         document.getElementById('char-title-2').textContent = data.name;
         document.getElementById('crumb-name').textContent = data.name;
+
+        var kat = KAT_LABEL[data.kategorie] ? (KAT_LABEL[data.kategorie][lang] || KAT_LABEL[data.kategorie].de) : '';
+        var ges = GES_LABEL[data.geschlecht] ? (GES_LABEL[data.geschlecht][lang] || GES_LABEL[data.geschlecht].de) : '';
+        var parts = [kat, ges].filter(Boolean);
+        if (data.alter) parts.push(data.alter + ' ' + (lang === 'de' ? 'Jahre' : 'years'));
+        document.getElementById('char-subtitle').textContent = parts.join(' · ');
+
         var img = document.getElementById('char-img');
         img.src = nexaraCharacterImg(slug);
         img.alt = data.name;
+
+        var quoteText = data.quote && (data.quote[lang] || data.quote.de);
+        var quoteEl = document.getElementById('char-quote');
+        if (quoteText) {
+          quoteEl.textContent = (lang === 'de' ? '„' + quoteText + '“' : '“' + quoteText + '”');
+          quoteEl.style.display = '';
+        } else {
+          quoteEl.style.display = 'none';
+        }
+
+        document.getElementById('char-bio').textContent = (data.bio && (data.bio[lang] || data.bio.de)) || '';
+
+        fillTraits(lang);
       } else {
         document.getElementById('char-title').setAttribute('data-i18n', 'char_not_found');
         document.getElementById('char-title').textContent = 'Charakter nicht gefunden.';
         document.getElementById('char-title-2').style.display = 'none';
         document.getElementById('char-img').style.display = 'none';
+        document.getElementById('char-quote').style.display = 'none';
+        document.getElementById('char-bio').textContent = '';
+        document.getElementById('char-subtitle').textContent = '';
       }
-      fillScenarios();
-      // Re-apply translations to freshly injected nodes, using whatever language is active
-      var lang = document.documentElement.getAttribute('lang') || 'de';
+      fillScenarios(lang);
       if (typeof nexaraSetLang === 'function') nexaraSetLang(lang);
     }
 
-    document.addEventListener('DOMContentLoaded', applyContent);
+    document.addEventListener('DOMContentLoaded', function(){
+      applyContent();
+      document.querySelectorAll('[data-lang-toggle]').forEach(function(btn){
+        btn.addEventListener('click', function(){ setTimeout(applyContent, 0); });
+      });
+    });
   })();
 </script>
 </body>
