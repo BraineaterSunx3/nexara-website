@@ -81,6 +81,7 @@
         <div class="kicker" data-i18n="commp_comm_kicker">Austausch & Diskussion</div>
         <h2 class="h" data-i18n="comm_1_h">Community</h2>
         <p data-i18n="commp_comm_p">Die Nexara-Community ist der Ort, an dem ihr euch über Charaktere, Szenarien und eigene Geschichten austauschen könnt. Wähle unten eine Kategorie, lies mit oder schreib direkt los — ganz ohne Account. Ein vollständiges Forum mit Nutzerkonten folgt später (siehe Roadmap).</p>
+        <p class="forum-guidelines" data-i18n="forum_guidelines_p">Bitte bleib respektvoll und fair. Passt ein Beitrag oder eine Antwort nicht hierher, meldest du ihn über 🚩 Melden — wir prüfen jede Meldung von Hand und entfernen Inhalte bei Bedarf.</p>
       </div>
       <div class="cards4 cat-filter" id="forum-filter" style="margin-bottom:34px;">
         <button type="button" class="card cat-btn active" data-cat="charaktere">
@@ -249,6 +250,23 @@
             <p data-i18n="commp_tl6_p">Anmeldung für Community-Funktionen (nutzt die bestehende Firebase-Infrastruktur).</p>
             <span class="tl-status" data-i18n="commp_tl6_status">Geplant</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="admin-section">
+    <div class="wrap">
+      <div class="admin-box" id="admin-box">
+        <button type="button" class="admin-toggle" id="admin-toggle" data-i18n="admin_login_btn">Admin</button>
+        <form id="admin-login-form" class="admin-login-form" hidden>
+          <input type="password" id="admin-password" placeholder="Passwort" data-i18n-placeholder="admin_login_ph" />
+          <button type="submit" class="btn btn-ghost btn-sm" data-i18n="admin_login_submit">Anmelden</button>
+          <p class="form-note" id="admin-login-note"></p>
+        </form>
+        <div id="admin-status" class="admin-status" hidden>
+          <span data-i18n="admin_active">Admin-Modus aktiv</span>
+          <button type="button" id="admin-logout" class="btn btn-ghost btn-sm" data-i18n="admin_logout">Abmelden</button>
         </div>
       </div>
     </div>
