@@ -68,9 +68,21 @@ header{
 
 /* ---------- Hero ---------- */
 .hero{padding:64px 0 40px;text-align:center}
-.hero-art{position:relative;max-width:900px;margin:0 auto 28px;border-radius:24px;overflow:hidden;
-  box-shadow:0 30px 80px -30px rgba(139,123,255,.35)}
-.hero-art img{width:100%}
+.hero-duo{position:relative;max-width:820px;margin:0 auto 28px;padding-top:10px}
+.hero-duo-glow{position:absolute;inset:-10% 0 10%;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 55% 60% at 28% 45%,rgba(139,123,255,.38),transparent 70%),
+             radial-gradient(ellipse 55% 60% at 72% 45%,rgba(255,182,72,.32),transparent 70%);
+  filter:blur(38px)}
+.hero-duo-figures{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center}
+.hero-duo-figure{width:36%;max-width:320px;height:auto;object-fit:contain;
+  filter:drop-shadow(0 24px 44px rgba(0,0,0,.5))}
+.hero-duo-astra{margin-right:-3.5%}
+.hero-duo-nexus{margin-left:-3.5%}
+.hero-wordmark{position:relative;z-index:2;align-self:center;padding:0 4px;
+  font-size:clamp(2.1rem,6.4vw,4.2rem);font-weight:800;letter-spacing:.08em;line-height:1}
+.hero-wordmark .grad{background:linear-gradient(90deg,var(--astra),var(--nexus));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 24px rgba(139,123,255,.45))}
 .eyebrow{color:var(--astra);font-weight:700;letter-spacing:.18em;font-size:.78rem;text-transform:uppercase;margin-bottom:10px}
 h1.title{font-size:clamp(2.2rem,5vw,3.6rem);margin:0 0 14px;font-weight:800;letter-spacing:-.01em}
 .title .grad{background:linear-gradient(90deg,var(--astra),var(--nexus));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -199,6 +211,8 @@ footer{border-top:1px solid var(--border);padding:56px 0 30px;color:var(--text-d
   .gallery{grid-template-columns:repeat(3,1fr)}
   .section{padding:56px 0}
   .byok{padding:28px}
+  .hero-duo-figure{width:32%}
+  .hero-wordmark{font-size:clamp(1.5rem,10vw,2.4rem);letter-spacing:.05em}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
