@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://braineatersunx3.github.io/nexara-website/sitemap.xml
