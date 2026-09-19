@@ -367,4 +367,6 @@ footer{border-top:1px solid var(--border);padding:56px 0 30px;color:var(--text-d
   color:var(--text);padding:6px 10px;font:inherit;width:140px}
 .admin-login-form input:focus{outline:none;border-color:var(--astra)}
 .admin-login-form .form-note{width:100%;margin:4px 0 0}
+.admin-login-form[hidden]{display:none}
 .admin-status{display:flex;gap:10px;align-items:center;justify-content:center;font-size:.8rem;color:#4fd6a0}
+.admin-status[hidden]{display:none}
