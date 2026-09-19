@@ -59,12 +59,10 @@
   <section class="section" style="padding-bottom:0;">
     <div class="wrap">
       <div class="cards4" style="margin-bottom:20px;">
-        <a href="#community" class="topic-card" style="position:relative;">
-          <span class="soon" data-i18n="comm_soon">Bald verfügbar</span>
+        <a href="#community" class="topic-card">
           <div class="ic">💬</div><h4 data-i18n="comm_1_h">Community</h4><p data-i18n="comm_1_p">Diskutiere mit anderen Nutzern.</p>
         </a>
-        <a href="#lab" class="topic-card" style="position:relative;">
-          <span class="soon" data-i18n="comm_soon">Bald verfügbar</span>
+        <a href="#lab" class="topic-card">
           <div class="ic">🧪</div><h4 data-i18n="comm_2_h">Nexara Lab</h4><p data-i18n="comm_2_p">Reiche Ideen ein und stimme ab.</p>
         </a>
         <a href="#news" class="topic-card">
@@ -82,17 +80,34 @@
       <div class="section-head">
         <div class="kicker" data-i18n="commp_comm_kicker">Austausch & Diskussion</div>
         <h2 class="h" data-i18n="comm_1_h">Community</h2>
-        <p data-i18n="commp_comm_p">Die Nexara-Community wird der Ort, an dem ihr euch über Charaktere, Szenarien und eigene Geschichten austauschen könnt. Das vollständige Forum braucht eigene Nutzerkonten (siehe Roadmap) und ist deshalb noch nicht live — hier schon mal ein Ausblick, was geplant ist.</p>
+        <p data-i18n="commp_comm_p">Die Nexara-Community ist der Ort, an dem ihr euch über Charaktere, Szenarien und eigene Geschichten austauschen könnt. Wähle unten eine Kategorie, lies mit oder schreib direkt los — ganz ohne Account. Ein vollständiges Forum mit Nutzerkonten folgt später (siehe Roadmap).</p>
       </div>
-      <div class="cards4" style="margin-bottom:34px;">
-        <div class="card"><div class="ic">🎭</div><h4 data-i18n="commp_cat1_h">Charaktere & Szenarien</h4><p data-i18n="commp_cat1_p">Lieblingscharaktere, eigene Interpretationen und Szenario-Ideen teilen.</p></div>
-        <div class="card"><div class="ic">💡</div><h4 data-i18n="commp_cat2_h">Feedback & Wünsche</h4><p data-i18n="commp_cat2_p">Direktes Feedback zur App und Vorschläge für neue Funktionen.</p></div>
-        <div class="card"><div class="ic">❓</div><h4 data-i18n="commp_cat3_h">Fragen & Hilfe</h4><p data-i18n="commp_cat3_p">Sich gegenseitig bei Einrichtung, API-Key & Co. helfen.</p></div>
-        <div class="card"><div class="ic">☕</div><h4 data-i18n="commp_cat4_h">Off-Topic</h4><p data-i18n="commp_cat4_p">Alles, was sonst noch dazugehört.</p></div>
+      <div class="cards4 cat-filter" id="forum-filter" style="margin-bottom:34px;">
+        <button type="button" class="card cat-btn active" data-cat="charaktere">
+          <div class="ic">🎭</div><h4 data-i18n="commp_cat1_h">Charaktere & Szenarien</h4><p data-i18n="commp_cat1_p">Lieblingscharaktere, eigene Interpretationen und Szenario-Ideen teilen.</p>
+        </button>
+        <button type="button" class="card cat-btn" data-cat="feedback">
+          <div class="ic">💡</div><h4 data-i18n="commp_cat2_h">Feedback & Wünsche</h4><p data-i18n="commp_cat2_p">Direktes Feedback zur App und Vorschläge für neue Funktionen.</p>
+        </button>
+        <button type="button" class="card cat-btn" data-cat="fragen">
+          <div class="ic">❓</div><h4 data-i18n="commp_cat3_h">Fragen & Hilfe</h4><p data-i18n="commp_cat3_p">Sich gegenseitig bei Einrichtung, API-Key & Co. helfen.</p>
+        </button>
+        <button type="button" class="card cat-btn" data-cat="offtopic">
+          <div class="ic">☕</div><h4 data-i18n="commp_cat4_h">Off-Topic</h4><p data-i18n="commp_cat4_p">Alles, was sonst noch dazugehört.</p>
+        </button>
       </div>
-      <div class="card" style="max-width:640px;margin:0 auto;text-align:center;">
-        <p data-i18n="commp_comm_cta_p">Du hast jetzt schon Feedback, Fragen oder Ideen? Schreib uns direkt per E-Mail — deine Nachricht hilft uns, die Community von Anfang an richtig aufzubauen.</p>
-        <a href="mailto:shneodesigns@gmail.com" class="btn btn-primary" style="margin-top:14px;" data-i18n="help_contact_cta">E-Mail schreiben</a>
+
+      <div class="forum-board">
+        <form id="post-form" class="lab-form">
+          <h4 data-i18n="forum_form_h">Neuen Beitrag schreiben</h4>
+          <input type="text" id="post-name" maxlength="50" placeholder="Dein Name (optional)" data-i18n-placeholder="forum_form_name_ph" />
+          <textarea id="post-message" maxlength="2900" rows="3" required placeholder="Deine Nachricht" data-i18n-placeholder="forum_form_msg_ph"></textarea>
+          <button type="submit" class="btn btn-primary" data-i18n="forum_form_submit">Beitrag veröffentlichen</button>
+          <p class="form-note" id="post-form-note"></p>
+        </form>
+        <div class="forum-list" id="forum-list">
+          <p class="board-loading" data-i18n="forum_loading">Beiträge werden geladen …</p>
+        </div>
       </div>
     </div>
   </section>
@@ -102,7 +117,7 @@
       <div class="section-head">
         <div class="kicker" data-i18n="commp_lab_kicker">Ideen einreichen & mitgestalten</div>
         <h2 class="h" data-i18n="comm_2_h">Nexara Lab</h2>
-        <p data-i18n="commp_lab_p">Im Nexara Lab werdet ihr später neue Charaktere, Szenarien und Funktionen vorschlagen und gemeinsam per Abstimmung priorisieren können, was als Nächstes umgesetzt wird. Das Abstimmungssystem braucht Nutzerkonten und folgt in einer späteren Ausbaustufe.</p>
+        <p data-i18n="commp_lab_p">Im Nexara Lab schlagt ihr neue Charaktere, Szenarien und Funktionen vor und stimmt direkt hier ab, was als Nächstes umgesetzt wird — kein Account nötig, nur ein Klick pro Idee.</p>
       </div>
       <div class="flow">
         <div class="step"><div class="n">1</div><div data-i18n="commp_lab_step1">Einreichen</div></div>
@@ -111,9 +126,18 @@
         <div class="arrow">→</div>
         <div class="step"><div class="n">3</div><div data-i18n="commp_lab_step3">Umsetzen</div></div>
       </div>
-      <div class="card" style="max-width:640px;margin:0 auto;text-align:center;">
-        <p data-i18n="commp_lab_cta_p">Bis es so weit ist, sammeln wir eure Ideen schon jetzt persönlich per E-Mail — jede Idee wird gelesen und fließt in die Planung ein.</p>
-        <a href="mailto:shneodesigns@gmail.com" class="btn btn-primary" style="margin-top:14px;" data-i18n="commp_lab_cta_btn">Idee einreichen</a>
+
+      <div class="lab-board">
+        <form id="idea-form" class="lab-form">
+          <h4 data-i18n="lab_form_h">Neue Idee vorschlagen</h4>
+          <input type="text" id="idea-title" maxlength="110" required placeholder="Titel deiner Idee" data-i18n-placeholder="lab_form_title_ph" />
+          <textarea id="idea-desc" maxlength="1900" rows="3" placeholder="Kurz beschreiben (optional)" data-i18n-placeholder="lab_form_desc_ph"></textarea>
+          <button type="submit" class="btn btn-primary" data-i18n="lab_form_submit">Idee einreichen</button>
+          <p class="form-note" id="idea-form-note"></p>
+        </form>
+        <div class="lab-list" id="lab-list">
+          <p class="board-loading" data-i18n="lab_loading">Ideen werden geladen …</p>
+        </div>
       </div>
     </div>
   </section>
@@ -202,24 +226,24 @@
             <span class="tl-status" data-i18n="commp_tl2_status">In Arbeit</span>
           </div>
         </div>
-        <div class="tl-item">
-          <div class="tl-dot">2</div>
+        <div class="tl-item done">
+          <div class="tl-dot">✓</div>
           <div class="tl-body">
             <h4 data-i18n="commp_tl3_h">Community-Forum</h4>
-            <p data-i18n="commp_tl3_p">Austausch zwischen Nutzern, Diskussionen rund um Nexara.</p>
-            <span class="tl-status" data-i18n="commp_tl3_status">Geplant</span>
+            <p data-i18n="commp_tl3_p">Austausch zwischen Nutzern, Diskussionen rund um Nexara — ganz ohne Account.</p>
+            <span class="tl-status" data-i18n="commp_tl3_status">Live</span>
           </div>
         </div>
-        <div class="tl-item">
-          <div class="tl-dot">3</div>
+        <div class="tl-item done">
+          <div class="tl-dot">✓</div>
           <div class="tl-body">
             <h4 data-i18n="commp_tl4_h">Nexara Lab (Abstimmung)</h4>
-            <p data-i18n="commp_tl4_p">Ideen einreichen und über neue Funktionen abstimmen.</p>
-            <span class="tl-status" data-i18n="commp_tl4_status">Geplant</span>
+            <p data-i18n="commp_tl4_p">Ideen einreichen und über neue Funktionen abstimmen — ganz ohne Account.</p>
+            <span class="tl-status" data-i18n="commp_tl4_status">Live</span>
           </div>
         </div>
         <div class="tl-item">
-          <div class="tl-dot">4</div>
+          <div class="tl-dot">2</div>
           <div class="tl-body">
             <h4 data-i18n="commp_tl6_h">Benutzerkonten</h4>
             <p data-i18n="commp_tl6_p">Anmeldung für Community-Funktionen (nutzt die bestehende Firebase-Infrastruktur).</p>
@@ -278,5 +302,6 @@
     });
   });
 </script>
+<script type="module" src="community.js"></script>
 </body>
 </html>
