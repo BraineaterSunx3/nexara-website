@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nexara — Astra</title>
+<meta name="description" content="Astra — dein einfühlsamer, freier KI-Gesprächspartner in Nexara." />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html#top" class="brand"><span class="dot"></span>NEXARA</a>
+    <nav class="navlinks" id="navlinks">
+      <a href="index.html#was-ist-nexara" data-i18n="nav_entdecken">Entdecken</a>
+      <a href="charaktere.html" data-i18n="nav_charaktere">Charaktere</a>
+      <a href="byok.html" data-i18n="nav_erstesch">Erste Schritte</a>
+      <a href="community.html" data-i18n="nav_community">Community</a>
+      <a href="community.html#lab" data-i18n="nav_lab">Nexara Lab</a>
+      <a href="community.html#news" data-i18n="nav_news">News</a>
+      <a href="hilfe.html" data-i18n="nav_hilfe">Hilfe</a>
+    </nav>
+    <div class="navright">
+      <button class="langbtn" data-lang-toggle onclick="nexaraToggleLang()">EN</button>
+      <a href="index.html#preis" class="btn btn-primary" data-i18n="nav_download">App herunterladen</a>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="padding-bottom:0;">
+    <div class="wrap">
+      <div class="crumb">
+        <a href="index.html" data-i18n="crumb_home">Start</a> / <a href="charaktere.html" data-i18n="nav_charaktere">Charaktere</a> / <span>Astra</span>
+      </div>
+      <div class="profile-hero astra">
+        <img src="assets/astra.webp" alt="Astra" />
+        <div>
+          <h1>Astra</h1>
+          <div class="tag" data-i18n="profile_astra_tag">Emotional · Empathisch · Intuitiv</div>
+          <p data-i18n="profile_astra_bio">Astra ist einer von zwei freien KI-Gesprächspartnern in Nexara …</p>
+          <div class="trait-row">
+            <span class="trait" data-i18n="profile_astra_trait1">Einfühlsam</span>
+            <span class="trait" data-i18n="profile_astra_trait2">Geduldig</span>
+            <span class="trait" data-i18n="profile_astra_trait3">Aufmerksam</span>
+            <span class="trait" data-i18n="profile_astra_trait4">Unterstützend</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="center">
+        <p style="color:var(--text-dim);margin-bottom:20px;" data-i18n="profile_cta_other">Auch kennenlernen:</p>
+        <div class="duo" style="max-width:520px;margin:0 auto;">
+          <div class="duo-card nexus">
+            <img src="assets/nexus.webp" alt="Nexus" />
+            <h3>Nexus</h3>
+            <div class="tag" data-i18n="nexus_tag">Analytisch · Tiefgründig · Direkt</div>
+            <a href="nexus.html" class="btn btn-ghost" data-i18n="duo_cta_nexus">Mehr über Nexus</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:10px;"><span class="dot"></span>NEXARA</div>
+        <p data-i18n="foot_tagline">Deine Welt. Deine Geschichten. Keine Grenzen.</p>
+      </div>
+      <div>
+        <h5 data-i18n="foot_nav_h">Entdecken</h5>
+        <ul>
+          <li><a href="index.html#funktionen" data-i18n="foot_features">Features</a></li>
+          <li><a href="charaktere.html" data-i18n="foot_characters">Charaktere</a></li>
+          <li><a href="charaktere.html" data-i18n="foot_scenarios">Szenarien</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="foot_support_h">Support</h5>
+        <ul>
+          <li><a href="hilfe.html#faq" data-i18n="foot_faq">FAQ</a></li>
+          <li><a href="hilfe.html" data-i18n="foot_help">Hilfe</a></li>
+          <li><a href="mailto:shneodesigns@gmail.com" data-i18n="foot_contact">Kontakt</a></li>
+          <li><a href="hilfe.html#melden" data-i18n="foot_bug">Fehler melden</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="foot_legal_h">Rechtliches</h5>
+        <ul>
+          <li><a href="https://braineatersunx3.github.io/nexara-legal/impressum.html" data-i18n="foot_impressum">Impressum</a></li>
+          <li><a href="https://braineatersunx3.github.io/nexara-legal/datenschutz.html" data-i18n="foot_privacy">Datenschutz</a></li>
+          <li><a href="https://braineatersunx3.github.io/nexara-legal/nutzungsbedingungen.html" data-i18n="foot_terms">Nutzungsbedingungen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span data-i18n="foot_rights">© 2026 Nexara / ShneoDesigns. Alle Rechte vorbehalten.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+  document.getElementById('navlinks').querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navlinks').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
